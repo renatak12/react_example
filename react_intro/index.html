@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4568/4568780.png">
-    <title>React_intro</title>
+    <title>ReceitaReact - 2</title>
 
     <style>
         #app {
             display: block;
-            justify-content: center;
+            margin-left: 20%;
         }
         
         #titulo {
-            margin-left: 30px;
+            margin-left: 90px;
             color: green;
         }
         
@@ -57,10 +57,22 @@
         .table tbody tr:last-of-type {
             border-bottom: 2px solid green;
         }
+        
+        #img {
+            width: 41%;
+            height: auto;
+        }
+        
+        body {
+            background-image: url("https://leianoticias.com.br/wp-content/uploads/2018/09/naom_5b9a8cb6a6e12-768x432.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 </head>
 
 <body>
+
     <div id="app">
 
     </div>
@@ -70,40 +82,53 @@
     <script src="libs/babel.js"></script>
 
     <script type="text/babel">
-
-        ReactDOM.render(
-        <MyTable/> 
-        , 
-        document.getElementById('app') ); 
-        
-        function MyTable(){ 
-            return (
-                <div id="app">
-                    <Cabecalho/>
-                    <table id="tabela" class='table'>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Marca</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <th>Havana</th>
-                                <th>Engenho Anísio Santiago</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            ) 
-        }; 
-        
-        function Cabecalho(){ 
-            return (
-                <h1 id="titulo"> Minha tabela de bebidas </h1>
-            ) 
+    
+        class Cabecalho extends React.Component{ 
+            render(){ 
+                return (
+                    <h1 id="titulo"> {this.props.titulo} </h1>
+                ) 
+            } 
         }
+
+        class Imagem extends React.Component{ 
+            render(){ 
+                return (
+                    <img src="https://c.tenor.com/tiq9yy-0Fp4AAAAC/drink-pour.gif" id="img" alt="Drink Pour GIF" /> 
+                ) 
+            } 
+        }  
+        
+        class TabelaBebidas extends React.Component{ 
+            render(){ 
+                return (
+                    <div id="app">
+                        <Cabecalho titulo="Tabela de Cana" />
+                        <table id="tabela" class='table'>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Marca</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th>Havana</th>
+                                    <th>Engenho Anísio Santiago</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <Imagem/>
+                    </div>
+                ) 
+            } 
+        } 
+        
+        ReactDOM.render(
+            <TabelaBebidas titulo="Tabela de Cana" /> 
+            , 
+            document.getElementById('app') )
     </script>
 </body>
 
