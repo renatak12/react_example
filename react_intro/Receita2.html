@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4568/4568780.png">
+    <title>ReceitaReact - 2</title>
+
+    <style>
+        #app {
+            display: block;
+            margin-left: 20%;
+        }
+        
+        #titulo {
+            margin-left: 90px;
+            color: green;
+        }
+        
+        .table {
+            background-color: white;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .table thead tr {
+            background-color: rgb(115, 221, 115);
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .table th,
+        .table td {
+            padding: 10px 13px;
+        }
+        
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .table tbody tr:nth-of-type(even) {
+            background-color: lightgreen;
+            color: #ffffff;
+        }
+        
+        .table tbody tr:nth-of-type(even) a {
+            color: #ffffff;
+        }
+        
+        .table tbody tr:last-of-type {
+            border-bottom: 2px solid green;
+        }
+        
+        #img {
+            width: 41%;
+            height: auto;
+        }
+        
+        body {
+            background-image: url("https://leianoticias.com.br/wp-content/uploads/2018/09/naom_5b9a8cb6a6e12-768x432.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+    
+        class Cabecalho extends React.Component{ 
+            render(){ 
+                return (
+                    <h1 id="titulo"> {this.props.titulo} </h1>
+                ) 
+            } 
+        }
+
+        class Imagem extends React.Component{ 
+            render(){ 
+                return (
+                    <img src="https://c.tenor.com/tiq9yy-0Fp4AAAAC/drink-pour.gif" id="img" alt="Drink Pour GIF" /> 
+                ) 
+            } 
+        }  
+        
+        class TabelaBebidas extends React.Component{ 
+            render(){ 
+                return (
+                    <div id="app">
+                        <Cabecalho titulo="Tabela de Cana" />
+                        <table id="tabela" class='table'>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Marca</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th>Havana</th>
+                                    <th>Engenho Anísio Santiago</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <Imagem/>
+                    </div>
+                ) 
+            } 
+        } 
+        
+        ReactDOM.render(
+            <TabelaBebidas titulo="Tabela de Cana" /> 
+            , 
+            document.getElementById('app') )
+    </script>
+</body>
+
+</html>
