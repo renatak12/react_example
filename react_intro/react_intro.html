@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4568/4568780.png">
+    <title>React_intro</title>
+
+    <style>
+        #app {
+            display: flex;
+            justify-content: center;
+        }
+
+        .table {
+            background-color: rgb(115, 221, 115);
+            color: white;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .table th,
+        .table td {
+            padding: 10px 13px;
+        }
+
+        .table tr {
+            border-bottom: 1px solid green;
+        }
+
+        .table tr:nth-of-type(even) {
+            background-color: white;
+            color: black;
+        }
+
+        .table tr:nth-of-type(even) a {
+            color: lightgreen;
+        }
+
+        .table tr:last-of-type {
+            border-bottom: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+
+    <script>
+        ReactDOM.render(
+            React.createElement(
+                'table', {
+                    className: 'table'
+                },
+                React.createElement(
+                    'tr', {
+                        id: 'linha'
+                    },
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'Produtos'
+                    ),
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'Valor'
+                    ),
+                ),
+                React.createElement(
+                    'tr', {
+                        id: 'linha'
+                    },
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'Chocolate'
+                    ),
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'R$3.50'
+                    ),
+                ),
+                React.createElement(
+                    'tr', {
+                        id: 'linha'
+                    },
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'Salgado'
+                    ),
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'R$2.50'
+                    ),
+                ),
+                React.createElement(
+                    'tr', {
+                        id: 'linha'
+                    },
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'Sorvete'
+                    ),
+                    React.createElement(
+                        'th', {
+                            id: 'coluna'
+                        },
+                        'R$5.00'
+                    ),
+                )
+            ),
+            document.getElementById('app')
+        );
+    </script>
+</body>
+
+</html>
