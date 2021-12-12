@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4568/4568780.png">
+    <title>ReceitaReact - 3</title>
+
+    <style>
+        #app {
+            display: block;
+            margin-left: 20%;
+        }
+        
+        #titulo {
+            margin-left: 10%;
+            color: rgb(1, 105, 1);
+        }
+        
+        .table {
+            background-color: white;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        .table thead tr {
+            background-color: rgb(66, 219, 66);
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .table th,
+        .table td {
+            padding: 10px 13px;
+        }
+        
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .table tbody tr:nth-of-type(even) {
+            background-color: rgb(66, 219, 66);
+            color: #ffffff;
+        }
+        
+        .table tbody tr:nth-of-type(even) a {
+            color: #ffffff;
+        }
+        
+        .table tbody tr:last-of-type {
+            border-bottom: 2px solid green;
+        }
+        
+        #img {
+            width: 30%;
+            height: auto;
+            margin-left: 7%;
+        }
+        
+        body {
+            background-image: url("https://leianoticias.com.br/wp-content/uploads/2018/09/naom_5b9a8cb6a6e12-768x432.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+    </div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+
+        const Titulo = ({titulo}) => { 
+            return (
+                <h1 id="titulo"> {titulo} </h1>
+            ) 
+        }; 
+        
+        const Imagem = () => { 
+            return (
+                <img src="https://c.tenor.com/tiq9yy-0Fp4AAAAC/drink-pour.gif" id="img" alt="Drink Pour GIF" /> 
+            ) 
+        }; 
+            
+        const TabelaBebidas = () => { 
+            return (
+                <div id="app">
+                    <Titulo titulo="Tabela de Cana" />
+                    <table id="tabela" class='table'>
+                        <thead>
+                            <tr id="cabecalho"></tr>
+                        </thead>
+
+                        <tbody id="conteudo">
+                        </tbody>
+                    </table>
+                    <Imagem/>
+                </div>
+            ) 
+        }; 
+        
+        ReactDOM.render( 
+            <TabelaBebidas/> 
+            , 
+            document.getElementById('app') 
+        ); 
+        
+        const valCabecalhos = ["Nome", "Marca","Origem"]; 
+        
+        const MontaCabecalho = (cabecalhos) => { 
+            let tam = cabecalhos.length; 
+            let result = ''; 
+            for(let i=0; i<tam; i++){ 
+                result +=` <th>${cabecalhos[i]}</th>` 
+            } 
+            return (result) 
+        }; 
+            
+        let textCabecalho = MontaCabecalho(valCabecalhos);
+        document.getElementById('cabecalho').innerHTML = textCabecalho; 
+        
+        const valConteudos = [["Havana", "Engenho Anísio Santiago", "Minhas Gerais"], ["Extrema",
+            "Fazenda Extrema", "Pureza"], ["Samanaú", "Engenho Samanaú","Caicó"], ["Jureminha", "Engenho Serra da Jurema", "Guarabira"], ["Triunfo", "Engenho Triunfo", "Areia"]]; 
+            
+        const MontaValores = (conteudos) => { 
+            let tam = conteudos.length; 
+            let result = ''; 
+
+            for(let i=0; i<tam; i++){ 
+                let tam1=conteudos[i].length; 
+                result +='<tr>' ; 
+                for(let j=0; j<tam1; j++){ 
+                    result +=` <th>${conteudos[i][j]}</th>` 
+                } 
+                result += '</tr>'; 
+            } 
+            result += '</tr>'; 
+            return (result)   
+        }; 
+
+        let textConteudo = MontaValores(valConteudos); 
+        document.getElementById('conteudo').innerHTML = textConteudo;
+
+    </script>
+</body>
+
+</html>
